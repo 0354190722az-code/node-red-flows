@@ -15,5 +15,6 @@ jobs:
 
       - name: Deploy to staging with scp
         run: |
-          scp -o StrictHostKeyChecking=no flows.json settings.js \
-          user@staging-server:/home/user/.node-red/
+          scp -o StrictHostKeyChecking=no flows.json settings.js 03541@172.172.0.161:/home/03541/.node-red/
+
+          
