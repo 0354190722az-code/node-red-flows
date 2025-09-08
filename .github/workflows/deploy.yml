@@ -3,17 +3,17 @@ name: Deploy Node-RED Flow
 on:
   push:
     branches:
-      - main   # chạy khi có push lên nhánh main
+      - main   # chỉ chạy khi có code mới push lên nhánh main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout source code
         uses: actions/checkout@v3
 
-      - name: Deploy flows to staging
+      - name: Deploy to staging with scp
         run: |
           scp -o StrictHostKeyChecking=no flows.json settings.js \
-          03541@localhost:/C/Users/03541/.node-red/
+          user@staging-server:/home/user/.node-red/
